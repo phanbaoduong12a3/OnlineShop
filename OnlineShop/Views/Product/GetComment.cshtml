@@ -1,0 +1,19 @@
+﻿@model List<Model.ViewModel.CommentViewModel>
+<div id="div_allcomment">
+    @foreach (var itemcomment in Model)
+    {
+        if (itemcomment.ParentID == 0)
+        {
+            <div class="row">
+                <h5 class="me-3 mb-0" style="color:red">@itemcomment.FullName : </h5>
+
+                <p class="mb-2" style="font-size:15px"> @itemcomment.CommentMsg</p>
+                <p class="small mb-2">@itemcomment.CommentDate</p>
+
+
+
+            </div>
+
+        }
+
+    }

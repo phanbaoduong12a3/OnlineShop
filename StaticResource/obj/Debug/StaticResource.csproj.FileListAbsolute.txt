@@ -1,0 +1,11 @@
+D:\Web Bán Hàng\onlineShop\StaticResource\bin\Debug\StaticResource.dll
+D:\Web Bán Hàng\onlineShop\StaticResource\bin\Debug\StaticResource.pdb
+D:\Web Bán Hàng\onlineShop\StaticResource\bin\Debug\en\StaticResource.resources.dll
+D:\Web Bán Hàng\onlineShop\StaticResource\obj\Debug\StaticResource.csproj.AssemblyReference.cache
+D:\Web Bán Hàng\onlineShop\StaticResource\obj\Debug\StaticResource.Resources.resources
+D:\Web Bán Hàng\onlineShop\StaticResource\obj\Debug\StaticResource.Resources.en.resources
+D:\Web Bán Hàng\onlineShop\StaticResource\obj\Debug\StaticResource.csproj.GenerateResource.cache
+D:\Web Bán Hàng\onlineShop\StaticResource\obj\Debug\StaticResource.csproj.CoreCompileInputs.cache
+D:\Web Bán Hàng\onlineShop\StaticResource\obj\Debug\en\StaticResource.resources.dll
+D:\Web Bán Hàng\onlineShop\StaticResource\obj\Debug\StaticResource.dll
+D:\Web Bán Hàng\onlineShop\StaticResource\obj\Debug\StaticResource.pdb

@@ -1,0 +1,15 @@
+﻿@model List<OnlineShop.Models.CartItem>
+<div class="cart">
+
+    <p>
+        Chào mừng bạn đến với Home Shoppe <span><a style="text-decoration: none" href="gio-hang">Giỏ Hàng</a></span><div id="dd" class="wrapper-dropdown-2">
+            @Model.Count sản phẩm
+            <ul class="dropdown">
+
+                <li><span>Bạn đang có @Model.Count sản phẩm trong giỏ hàng</span></li>
+
+            </ul>
+        </div>
+    </p>
+
+</div>

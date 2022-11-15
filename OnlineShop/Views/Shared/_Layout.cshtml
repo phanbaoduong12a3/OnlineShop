@@ -1,0 +1,114 @@
+﻿<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Online Shop</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="/assests/client/css/bootstrap-social.css" rel="stylesheet" />
+    <link href="/assests/client/css/bootstrap.css" rel="stylesheet" />
+    <link href="/assests/client/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="/assests/client/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="/assests/client/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assests/client/css/bootrap-icon.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/assests/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/assests/client/css/choices.min.css" rel="stylesheet" />
+
+    <link href="/assests/client/css/jquery-ui.css" rel="stylesheet" />
+    <link href="/assests/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/assests/client/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+
+
+    <script src="/assests/client/js/jquery-3.4.1.min.js"></script>
+    <script src="/assests/client/js/jquery-ui.js"></script>
+    <script src="/assests/client/js/bootstrap.min.js"></script>
+    <script src="/assests/client/js/choices.min.js"></script>
+    <script type="text/javascript" src="/assests/client/js/move-top.js"></script>
+    <script type="text/javascript" src="/assests/client/js/easing.js"></script>
+    <script type="text/javascript" src="/assests/client/js/startstop-slider.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="headertop_desc">
+                @{ Html.RenderAction("TopMenu", "Home");}
+            </div>
+
+            <div class="header-top">
+                <div class="logo">
+                    <a href="/" ref="nofollow">
+                        <img src="/assests/client/images/logo.png" alt="" />
+                    </a>
+                </div>
+
+                @{ Html.RenderAction("HeaderCart", "Home");}
+                <script type="text/javascript">
+                    function DropDown(el) {
+                        this.dd = el;
+                        this.initEvents();
+                    }
+                    DropDown.prototype = {
+                        initEvents: function () {
+                            var obj = this;
+
+                            obj.dd.on('click', function (event) {
+                                $(this).toggleClass('active');
+                                event.stopPropagation();
+                            });
+                        }
+                    }
+
+                    $(function () {
+
+                        var dd = new DropDown($('#dd'));
+
+                        $(document).click(function () {
+                            // all dropdowns
+                            $('.wrapper-dropdown-2').removeClass('active');
+                        });
+
+                    });</script>
+                <div class="clear"></div>
+            </div>
+            <div class="header_bottom">
+                @{Html.RenderAction("MainMenu", "Home"); }
+                <div class="search_box">
+                    <form action="/tim-kiem" method="get">
+                        <input type="text" id="txtKeyword" name="keyword" placeholder="Search"><input type="submit" value="">
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+            @RenderSection("slide", required: false)
+
+        </div>
+        <div class="main">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="footer">
+        @{ Html.RenderAction("Footer", "Home");}
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });</script>
+    <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+
+    <script src="/assests/client/js/controller/baseController.js"></script>
+
+    @RenderSection("jsFooter", required: false)
+</body>
+</html>
+

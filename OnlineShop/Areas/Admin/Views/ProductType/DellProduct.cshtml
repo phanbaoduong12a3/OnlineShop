@@ -1,0 +1,115 @@
+﻿
+@model PagedList.IPagedList<Model.EF.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản Lý Sản Phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header{
+    Quản Lý Sản Phẩm
+}
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Dell</h6>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("DellProduct", "ProductType", FormMethod.Get))
+                    {
+
+
+
+                        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group" style="margin-top:20px;margin-bottom:20px">
+
+                                <input type="text" value="@ViewBag.SearchString" class="form-control bg-light border-0 small" placeholder="search" name="searchString"
+                                       aria-label="Search" aria-describedby="basic-addon2" style="margin-right:5px">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+
+                                </div>
+
+
+
+                            </div>
+
+                        </form>
+
+                    }
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>MetaTitle</td>
+                                    <td>Code</td>
+                                    <td>CategoryID</td>
+                                    <td>Price</td>
+                                    <td>Image</td>
+                                    <td>CreateDate</td>
+                                    <td>TopHot</td>
+                                    <td>Status</td>
+                                    <td></td>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr id="row_@item.ID">
+                                        <td>@item.Name</td>
+                                        <td>@item.MetaTitle</td>
+                                        <td>@item.Code</td>
+                                        <td>@item.CategoryID</td>
+                                        <td>@item.Price</td>
+                                        <td><img src="@item.Image" style="height:50px;width:50px" /></td>
+                                        <td>@item.CreateDate</td>
+                                        <td>@item.TopHot</td>
+                                        <td>@item.Status</td>
+
+                                        @* <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích hoạt" : "Khoá")</a></td>*@
+                                        <td>
+                                            <a href="/Admin/ProductType/EditDellProduct/@item.ID">Edit</a>
+                                            @Ajax.ActionLink("Xoá", "DeleteDellProduct", new { id = item.ID }, new AjaxOptions
+                                       {
+                                           Confirm = "Bạn có muốn xoá bản ghi này?",
+                                           OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                           HttpMethod = "Delete"
+                                       })
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        @Html.PagedListPager(Model, page => Url.Action("DellProduct", new { page, @searchString = ViewBag.SearchString }));
+                    </div>
+                    <p>Thêm mới sản phẩm vào Group Dell bằng cách: Chọn CategoryID=23</p>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <a class="btn btn-primary" href="/Admin/Product/Index">Thêm Mới</a>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+

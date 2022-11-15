@@ -1,0 +1,104 @@
+﻿@model PagedList.IPagedList<Model.EF.Content>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản Lý Tin tức";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header{
+   Danh sách tin tức
+}
+
+@section jsFooter{
+
+   
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh sách tin tức</h6>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Index", "Content", FormMethod.Get))
+                    {
+
+
+
+                        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group" style="margin-top:20px;margin-bottom:20px">
+
+                                <input type="text" value="@ViewBag.SearchString" class="form-control bg-light border-0 small" placeholder="search" name="searchString"
+                                       aria-label="Search" aria-describedby="basic-addon2" style="margin-right:5px">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+
+                                </div>
+
+
+
+                            </div>
+
+                        </form>
+
+                    }
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+
+                                    <th>Tiêu đề</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Ngày đăng</th>
+                                    <th>Trạng thái</th>
+                                 
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr id="row_@item.ID">
+
+
+                                        <td>@item.Name</td>
+                                        <td>@item.Image</td>
+                                        <td>@item.CreateDate</td>
+                                        
+                                       
+                                      
+                                        <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích hoạt" : "Khoá")</a></td>
+                                        <td>
+                                            <a href="/Admin/Content/Edit/@item.ID">Edit</a>
+                                            @Ajax.ActionLink("Xoá", "Delete", new { id = item.ID }, new AjaxOptions
+                                       {
+                                           Confirm = "Bạn có muốn xoá bản ghi này?",
+                                           OnComplete = "$('#row_" + item.ID + "').remove()",
+                                           HttpMethod = "Delete"
+                                       })
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = ViewBag.SearchString }));
+                    </div>
+
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <a class="btn btn-primary" href="/Admin/Content/Create">Thêm Mới</a>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

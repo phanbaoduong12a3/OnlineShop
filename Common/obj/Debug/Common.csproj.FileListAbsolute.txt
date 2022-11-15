@@ -1,0 +1,11 @@
+D:\Web Bán Hàng\onlineShop\Common\bin\Debug\Common.dll
+D:\Web Bán Hàng\onlineShop\Common\bin\Debug\Common.pdb
+D:\Web Bán Hàng\onlineShop\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+D:\Web Bán Hàng\onlineShop\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\Web Bán Hàng\onlineShop\Common\obj\Debug\Common.dll
+D:\Web Bán Hàng\onlineShop\Common\obj\Debug\Common.pdb
+D:\Web Bán Hàng\onlineShop\Common\bin\Debug\NWebsec.Core.dll
+D:\Web Bán Hàng\onlineShop\Common\bin\Debug\NWebsec.dll
+D:\Web Bán Hàng\onlineShop\Common\bin\Debug\NWebsec.xml
+D:\Web Bán Hàng\onlineShop\Common\bin\Debug\NWebsec.Core.xml
+D:\Web Bán Hàng\onlineShop\Common\obj\Debug\Common.csproj.CopyComplete
